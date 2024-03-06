@@ -37,7 +37,7 @@ public class LanguageModel {
         char c;
         In in = new In(fileName);
 
-        for (int i = 1; i < windowLength; i++) { 
+        for (int i = 0; i < windowLength; i++) { 
             char temp  = in.readChar();
             window += temp;
         }
