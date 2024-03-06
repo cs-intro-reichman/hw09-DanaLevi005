@@ -61,16 +61,14 @@ public class List {
     public int indexOf(char chr) {
         Node current = first;
         int index = 0;
-        while (current.next != null){
-            if (current.cp.equals(chr)) {
-                return index; 
+        while (current != null)  {
+            if (current.cp.chr == chr){
+            return index;
             }
             current = current.next;
-            index++;
-
-        }
-        return -1;
-
+            index ++;
+       }
+       return -1; 
     }
 
     /** If the given character exists in one of the CharData objects in this list,
