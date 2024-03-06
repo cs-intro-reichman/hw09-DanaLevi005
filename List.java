@@ -43,12 +43,14 @@ public class List {
         if (size == 0){
             return "()";
         }
-        String str = "";
         Node current = first;
-        while (current.next != null){
-            str += current.cp.toString();
+        String str = "(";
+        while(current != null){
+            str += current.cp.toString() + " ";
+            current = current.next;
+
         }
-        return str;
+        return (str.substring(0,str.length()-1)+ ")");
 
 
     }
@@ -60,7 +62,7 @@ public class List {
         Node current = first;
         int index = 0;
         while (current.next != null){
-            if (this.equals(chr)) {
+            if (current.cp.equals(chr)) {
                 return index; 
             }
             current = current.next;
@@ -77,10 +79,18 @@ public class List {
     public void update(char chr) {
         int index = this.indexOf(chr);
         if (index != -1){
-
-            get(index).count ++;
+            Node current = first;
+            while (current != null){
+                if (current.cp.chr == chr){
+              current.cp.count++;
+            }
+            current = current.next;
+         }
+        } else {
+          addFirst(chr);
         }
-    }
+    }    
+
 
     /** GIVE If the given character exists in one of the CharData objects
      *  in this list, removes this CharData object from the list and returns
